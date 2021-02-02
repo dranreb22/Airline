@@ -156,10 +156,9 @@ public class Login extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
     } else {
       try {
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection(
-            "jdbc:mysql://localhost/phpmyadmin/db_structure.php?server=1&db=airlinereservationsystem",
-            "root", "12345678");
+          Class.forName("com.mysql.cj.jdbc.Driver");
+          con = DriverManager
+              .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
         pst = con.prepareStatement("select * from user where username = ? and password = ?");
         pst.setString(1, username);
         pst.setString(2, password);
