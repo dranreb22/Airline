@@ -1,8 +1,6 @@
 package com.company;
 
 import com.toedter.calendar.JCalendar;
-import java.awt.Image;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,11 +10,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -556,7 +552,7 @@ public class ticket extends javax.swing.JInternalFrame {
         txtticketno.setText("TO001");
       } else {
         long id = Long
-            .parseLong(rs.getString("MAX(id)").substring(2, rs.getString("MAX(id)").length()));
+            .parseLong(rs.getString("MAX(id)").substring(2));
         id++;
         txtticketno.setText("TO" + String.format("%03d", id));
 
@@ -657,7 +653,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://localhost/phpmyadmin/db_structure.php?server=1&db=airlinereservationsystem","root","12345678");
+      con = DriverManager.getConnection(
+          "jdbc:mysql://localhost/phpmyadmin/db_structure.php?server=1&db=airlinereservationsystem",
+          "root", "12345678");
       pst = con.prepareStatement(
           "insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
 
