@@ -497,7 +497,7 @@ public class ticket extends javax.swing.JInternalFrame {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       con = DriverManager
-          .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+          .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
 
       pst.setString(1, source);
@@ -545,7 +545,7 @@ public class ticket extends javax.swing.JInternalFrame {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       con = DriverManager
-          .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+          .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from ticket");
       rs.next();
@@ -580,7 +580,7 @@ public class ticket extends javax.swing.JInternalFrame {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       con = DriverManager
-          .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+          .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       pst = con.prepareStatement("select * from customer where id = ?");
       pst.setString(1, id);
       ResultSet rs = pst.executeQuery();
@@ -657,7 +657,7 @@ public class ticket extends javax.swing.JInternalFrame {
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       con = DriverManager
-          .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+          .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       pst = con.prepareStatement(
           "insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)");
 

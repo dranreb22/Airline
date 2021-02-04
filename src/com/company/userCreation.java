@@ -205,7 +205,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager
-            .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+            .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       pst = con.prepareStatement(
           "insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
 
@@ -238,7 +238,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         con = DriverManager
-            .getConnection("jdbc:mysql://localhost/airlinereservationsystem", "root", "12345678");
+            .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
       Statement s = con.createStatement();
       ResultSet rs = s.executeQuery("select MAX(id) from user");
       rs.next();
