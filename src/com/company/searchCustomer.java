@@ -41,7 +41,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
    */
   public searchCustomer() {
     initComponents();
-
   }
 
   Connection con;
