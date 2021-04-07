@@ -7,7 +7,7 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class AddFlightTest {
+public class addFlightTest {
     @Test
     public void jButton1ActionPerformedTest(){
         String id = "1";
@@ -24,9 +24,7 @@ public class AddFlightTest {
         String departtime = "1200";
         String arrtime = "1400";
         String flightcharge = "200";
-
-        System.out.println(0 >= date.compareTo(cal.getTime()));
-
         Assert.assertTrue(0 >= date.compareTo(cal.getTime()));
+        Assert.assertFalse(0 < date.compareTo(cal.getTime()));
     }
 }

@@ -1,6 +1,8 @@
 package com.company;
 
 
+import static com.mysql.cj.util.StringUtils.isNullOrEmpty;
+
 import com.toedter.calendar.JCalendar;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -18,6 +20,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -48,6 +51,58 @@ public class addCustomer extends javax.swing.JInternalFrame {
   String path = null;
   byte[] userimage = null;
 
+
+
+  public void setTxtFirstName(String txt){
+    txtfirstname.setText(txt);
+  }
+
+  public void setTxtLastName(String txt){
+    txtfirstname.setText(txt);
+  }
+
+  public void setTxtNIC(String nic){
+    txtnic.setText(nic);
+  }
+
+  public void setTxtID(String id){
+    txtid.setText(id);
+  }
+
+  public void setTxtAddress(String address){
+    txtaddress.setText(address);
+  }
+
+  public void setPassportID(String passportID) {
+    txtpassport.setText(passportID);
+  }
+
+
+
+  public boolean isValidFirstName(){
+    String regex = "^[a-zA-Z[-]]{1,64}$";
+    return Pattern.matches(regex, txtfirstname.getText());
+
+}
+  public boolean isValidLastName(){
+    String regex = "^[a-zA-Z[-]]{1,64}$";
+    return Pattern.matches(regex, txtfirstname.getText());
+  }
+
+  public boolean isValidNIC(){
+    String regex = "^\\d{10}$";
+    return Pattern.matches(regex, txtnic.getText());
+  }
+
+  public boolean isValidPassport(){
+    String regex = "^[a-zA-Z0-9[<]]+$";
+    return Pattern.matches(regex, txtpassport.getText());
+  }
+
+  public boolean isValidID(){
+    String regex = "CS[0-9]{3}";
+    return Pattern.matches(regex, txtid.getText());
+  }
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -452,9 +507,10 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
   }//GEN-LAST:event_jButton1ActionPerformed
 
-  private void jButton2ActionPerformed(
+  public boolean jButton2ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    // TODO add your handling code here:
+
+
 
     String id = txtid.getText();
     String firstname = txtfirstname.getText();
@@ -462,6 +518,16 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String nic = txtnic.getText();
     String passport = txtpassport.getText();
     String address = txtaddress.getText();
+
+
+    if(isNullOrEmpty(id) || isNullOrEmpty(firstname) || isNullOrEmpty(lastname) ||
+        isNullOrEmpty(nic) || isNullOrEmpty(passport) || isNullOrEmpty(address) ){
+
+      System.out.println(id);
+      JOptionPane.showMessageDialog(null, "There seems to be an empty field...");
+
+      return false;
+    }
 
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     JCalendar txtdob = new JCalendar();
@@ -498,13 +564,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null, "Registation Createdd.........");
 
 
-    } catch (ClassNotFoundException ex) {
+    } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-    } catch (SQLException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+
+      return false;
     }
 
-
+    return true;
   }//GEN-LAST:event_jButton2ActionPerformed
 
   private void jButton3ActionPerformed(
