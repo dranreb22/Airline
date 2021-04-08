@@ -24,7 +24,5 @@ public class TicketTest {
     int tot = price * qty;
 
     assertEquals(3,tot);
-
-
   }
 }

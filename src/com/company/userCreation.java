@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -29,6 +30,30 @@ public class userCreation extends javax.swing.JInternalFrame {
 
   Connection con;
   PreparedStatement pst;
+
+  public void setTxtFirstName(String firstName){
+    txtfirstname.setText(firstName);
+  }
+
+  public void setTxtLastName(String lastName){
+    txtlastname.setText(lastName);
+  }
+
+  public void setTxtID(String id){
+    txtuserid.setText(id);
+  }
+
+  public void setUserName(String userName){
+    txtusername.setText(userName);
+  }
+
+  public void setPassword(String password){
+    txtpassword.setText(password);
+  }
+
+
+
+
 
   /**
    * This method is called from within the constructor to initialize the form. WARNING: Do NOT
@@ -192,7 +217,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jButton1ActionPerformed(
+  public void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -212,8 +237,19 @@ public class userCreation extends javax.swing.JInternalFrame {
       pst.setString(1, id);
       pst.setString(2, firstname);
       pst.setString(3, lastname);
-      pst.setString(4, username);
-      pst.setString(5, password);
+
+
+      //Check the length of the username and password the user enters to ensure it is longer then 6 but shorter then 15.
+      if((password.length() >= 6 && username.length() >= 6) && (password.length() <= 15 && username.length() <= 15 )) {
+        pst.setString(4, username);
+        pst.setString(5, password);
+
+      }else{
+        showMessageDialog(null,"Please enter a valid username or password.");
+        return;
+      }
+
+
 
       pst.executeUpdate();
 
@@ -225,6 +261,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     }
 
 
+  return;
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void jButton2ActionPerformed(
@@ -260,7 +297,12 @@ public class userCreation extends javax.swing.JInternalFrame {
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
-
+/*
+get fields from user creation creat an object
+check length of fields
+test login ensure hes actually logged in
+check for null fields
+ */
 
   }
 
