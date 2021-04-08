@@ -7,8 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -145,12 +144,14 @@ public class Login extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
+  // Event handler for the Login button
   private void jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
     String username = txtuser.getText();
     String password = txtpass.getText();
+    User user = new User(txtuser.getText(), txtpass.getText());
 
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
@@ -171,28 +172,26 @@ public class Login extends javax.swing.JFrame {
           this.hide();
           m.setVisible(true);
 
-
         } else {
           JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
-
-
         }
-
-
       } catch (ClassNotFoundException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
       } catch (SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
       }
-
-
     }
 
-
   }//GEN-LAST:event_jButton1ActionPerformed
+  private void handleUserLogin(String username, String password) {
+    User user = new User(username, password);
+  }
+  private boolean isLoginEmpty(String username, String password) {
+    return username != null && password != null;
+  }
 
   /**
    * @param args the command line arguments
@@ -232,5 +231,6 @@ public class Login extends javax.swing.JFrame {
   private javax.swing.JPanel jPanel1;
   private javax.swing.JPasswordField txtpass;
   private javax.swing.JTextField txtuser;
+
   // End of variables declaration//GEN-END:variables
 }

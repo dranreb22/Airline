@@ -24,7 +24,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="ed8b9e53-65e0-434b-b0fe-bbdaafbb8b4d">
+        <schema name="softwaretesting" object-types="constraint, table, view, column, index, dataset trigger, function, procedure" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="ed8b9e53-65e0-434b-b0fe-bbdaafbb8b4d">
@@ -32,7 +36,9 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="ed8b9e53-65e0-434b-b0fe-bbdaafbb8b4d" object-ref="schemas/softwaretesting/tables/user" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="ed8b9e53-65e0-434b-b0fe-bbdaafbb8b4d" />
@@ -44,6 +50,7 @@
         <condition column="address" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="ed8b9e53-65e0-434b-b0fe-bbdaafbb8b4d" dataset="softwaretesting.user" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

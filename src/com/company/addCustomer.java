@@ -27,6 +27,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import static com.company.dbHandler.initDB;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -431,35 +433,25 @@ public class addCustomer extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-
   public void autoID() {
     try {
-      Class.forName("com.mysql.cj.jdbc.Driver");
-      con = DriverManager
-          .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
-      Statement s = con.createStatement();
+      Connection conn = initDB();
+      assert conn != null;
+      Statement s = conn.createStatement();
+
       ResultSet rs = s.executeQuery("select MAX(id) from customer");
       rs.next();
       rs.getString("MAX(id)");
       if (rs.getString("MAX(id)") == null) {
         txtid.setText("CS001");
       } else {
-        long id = Long
-            .parseLong(rs.getString("MAX(id)").substring(2));
+        long id = Long.parseLong(rs.getString("MAX(id)").substring(2));
         id++;
         txtid.setText("CS" + String.format("%03d", id));
-
-
       }
-
-
-    } catch (ClassNotFoundException ex) {
-      Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     } catch (SQLException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
     }
-
-
   }
 
 
