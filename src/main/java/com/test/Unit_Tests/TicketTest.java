@@ -1,4 +1,4 @@
-package Unit__tests;
+package com.test.Unit_Tests;
 
 import org.junit.Test;
 

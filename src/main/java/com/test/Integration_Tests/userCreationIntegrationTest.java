@@ -1,4 +1,4 @@
-package integration_tests;
+package com.test.Integration_Tests;
 
 import com.company.Login;
 import com.company.User;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class userCreationIntegrationTest {
     private User testUser;
-
+/*
     @Test
     public void stubTestUserCreation() {
         User testUser = mock(User.class);
@@ -27,7 +27,7 @@ public class userCreationIntegrationTest {
         Assert.assertTrue(String.valueOf(testUser.getUsername().length() >= 6), testUser.getUsername().length() <= 15);
         Assert.assertTrue(String.valueOf(testUser.getPassword().length() >= 6), testUser.getPassword().length() <= 15);
     }
-
+*/
 
 
     @Test

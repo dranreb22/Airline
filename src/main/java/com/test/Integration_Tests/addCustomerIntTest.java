@@ -1,4 +1,4 @@
-package integration_tests;
+package com.test.Integration_Tests;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

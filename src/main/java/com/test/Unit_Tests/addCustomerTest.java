@@ -1,4 +1,4 @@
-package Unit__tests;
+package com.test.Unit_Tests;
 
 import com.company.addCustomer;
 import com.toedter.calendar.JCalendar;

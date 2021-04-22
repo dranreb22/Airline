@@ -1,4 +1,4 @@
-package Gui_tests;
+package com.test.Gui_Tests;
 
 import com.company.Main;
 import org.assertj.swing.edt.GuiActionRunner;

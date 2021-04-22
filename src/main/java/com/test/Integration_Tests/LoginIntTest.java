@@ -1,4 +1,4 @@
-package integration_tests;
+package com.test.Integration_Tests;
 
 import com.company.User;
 import org.junit.Test;

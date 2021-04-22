@@ -1,4 +1,4 @@
-package Gui_tests;
+package com.test.Gui_Tests;
 
 import javax.swing.JDesktopPane;
 
@@ -29,8 +29,6 @@ public class loginGuiTest extends AssertJSwingJUnitTestCase {
 
         window = new FrameFixture(Containers.frameFor(container));
         window.show();
-
-
     }
 
     @Test
@@ -42,7 +40,5 @@ public class loginGuiTest extends AssertJSwingJUnitTestCase {
         window.cleanUp();
 
     }
-
-
 }
 

@@ -1,4 +1,4 @@
-package Gui_tests;
+package com.test.Gui_Tests;
 
 import com.company.Main;
 import org.assertj.swing.fixture.FrameFixture;
@@ -53,6 +53,7 @@ public class mainGuiTest extends AssertJSwingJUnitTestCase {
         window.menuItem("bookTicket").click().requireVisible();
         window.cleanUp();
     }
+
     @Test
     public void ticketReport() {
         window.menuItem("ticketsMenu").click().requireVisible();
