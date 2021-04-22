@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 // Expected Output            : Method jButton2ActionPerformed() should produce a java.sql.SQLException
 
 public class addCustomerTest {
+
     @Test
     public void jButton2ActionPerformed() {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -39,16 +40,17 @@ public class addCustomerTest {
         JCalendar txtdob = new JCalendar();
         String date = da.format(new Date());
         String Gender = "Male";
-        String contact = "test";
+        String contact = "123";
 
         try {
             byte[] userimage = null;
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager
-                    .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting", "bernard123", "SoftwareTesting");
+                .getConnection("jdbc:mysql://mysql.nicspe9.dreamhosters.com/softwaretesting",
+                    "bernard123", "SoftwareTesting");
             PreparedStatement pst = con.prepareStatement(
-                    "insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
+                "insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
 
             pst.setString(1, id);
             pst.setString(2, firstname);
@@ -61,9 +63,7 @@ public class addCustomerTest {
             pst.setString(9, contact);
             pst.setBytes(10, userimage);
             pst.executeUpdate();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

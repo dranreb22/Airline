@@ -79,7 +79,4 @@ public class userCreationIntegrationTest {
 
         assertFalse(loginTester.loginButtonClicked(null));
     }
-
-
-
 }
