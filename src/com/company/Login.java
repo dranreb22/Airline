@@ -141,6 +141,9 @@ public class Login extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
+  public void setTxtUser(String user){this.txtuser.setText(user);}
+  public void setTxtPassword(String password){this.txtuser.setText(password);}
+
   // Event handler for the Login button
   private void loginButtonClicked(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

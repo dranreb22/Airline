@@ -50,6 +50,8 @@ public class userCreationIntegrationTest {
         createUser.jButton1ActionPerformed(null);
 
         Login loginTester = new Login();
+
+        //loginTester.setUsername
     }
 
     @Test
