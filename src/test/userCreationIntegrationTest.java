@@ -51,7 +51,10 @@ public class userCreationIntegrationTest {
 
         Login loginTester = new Login();
 
-        //loginTester.setUsername
+        loginTester.setTxtUser("usernametest");
+        loginTester.setTxtPassword("passwordtest");
+
+        loginTester.loginButtonClicked(null);
     }
 
     @Test
