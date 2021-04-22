@@ -24,7 +24,7 @@ public class LoginIntTest {
 
   /** Method: main(String[] args) */
   @Test
-  public void isEmptyLoginTest() throws Exception {
+  public void isEmptyLoginStub() throws Exception {
       User test = mock(User.class);
       when(test.getUsername()).thenReturn("test");
       when(test.getPassword()).thenReturn("pass");

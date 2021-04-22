@@ -23,9 +23,8 @@ public class userCreationIntegrationTest {
     private User testUser;
 
     @Test
-    public void mockTestUserCreation() {
+    public void stubTestUserCreation() {
         User testUser = mock(User.class);
-
         //set the username and password fields to acceptable values.
         when(testUser.getUsername()).thenReturn("Christ");
         when(testUser.getPassword()).thenReturn("123456");
@@ -80,7 +79,4 @@ public class userCreationIntegrationTest {
 
         assertFalse(loginTester.loginButtonClicked(null));
     }
-
-
-
 }
