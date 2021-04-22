@@ -59,6 +59,16 @@ public class addflight extends javax.swing.JInternalFrame {
     txtsource = new javax.swing.JComboBox<>();
     txtdepart = new javax.swing.JComboBox<>();
 
+    txtflightname.setName("name");
+    txtsource.setName("source");
+    txtdepart.setName("depart");
+    txtdate.setName("date");
+    txtdtime.setName("depTime");
+    txtarrtime.setName("ArrTime");
+    txtflightcharge.setName("charge");
+    jButton1.setName("addFlight");
+
+
     jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
     jLabel1.setFont(new java.awt.Font("Tahoma", Font.BOLD, 11)); // NOI18N
@@ -398,7 +408,6 @@ public class addflight extends javax.swing.JInternalFrame {
     DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
     if (txtdate.getDate() != null) {
       date = da.format(txtdate.getDate());
-      System.out.println("NOT NULL");
     }
 
     String departtime = txtdtime.getText();
@@ -472,5 +481,7 @@ public class addflight extends javax.swing.JInternalFrame {
   private javax.swing.JLabel txtflightid;
   private javax.swing.JTextField txtflightname;
   private javax.swing.JComboBox<String> txtsource;
+
+
   // End of variables declaration//GEN-END:variables
 }
