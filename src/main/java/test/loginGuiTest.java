@@ -23,12 +23,12 @@ public class loginGuiTest extends AssertJSwingJUnitTestCase {
     @Override
     protected void onSetUp() {
         Login test = GuiActionRunner.execute(Login::new);
-        Container idk = test.getContentPane();
+        Container container = test.getContentPane();
         pane = new JDesktopPane();
-        pane.add(idk);
+        pane.add(container);
         test.setVisible(true);
 
-        window = new FrameFixture(Containers.frameFor(idk));
+        window = new FrameFixture(Containers.frameFor(container));
         window.show();
 
 
