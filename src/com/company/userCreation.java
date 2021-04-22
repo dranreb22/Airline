@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -211,16 +213,23 @@ public class userCreation extends javax.swing.JInternalFrame {
 
   public void jButton1ActionPerformed(
           java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    // TODO add your handling code here:
+    String pattern = "[a-zA-z0-9]{8,}";
+    Pattern compiledPattern = Pattern.compile(pattern);
 
     String id = txtuserid.getText();
     String firstname = txtfirstname.getText();
-    String lastname =  txtlastname.getText();
+    String lastname = txtlastname.getText();
     String username = txtusername.getText();
-    String password = String.valueOf(txtpassword.getPassword());
+    String password = new String(txtpassword.getPassword());
+    Matcher m = compiledPattern.matcher(password);
+    boolean passwordMatch = m.matches();
 
-    if ((firstname.isEmpty()) ||(lastname.isEmpty()) ||(username.isEmpty()) ||(password.isEmpty())){
+    if ((firstname.isEmpty()) ||(lastname.isEmpty()) ||(username.isEmpty())){
       JOptionPane.showMessageDialog(this,"Field cannot be left empty");
+      return;
+    }
+    if (!passwordMatch){
+      JOptionPane.showMessageDialog(this, "Password can only contain 8 or more alphanumeric characters");
       return;
     }
 
