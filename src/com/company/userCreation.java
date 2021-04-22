@@ -223,9 +223,14 @@ public class userCreation extends javax.swing.JInternalFrame {
 
     String id = txtuserid.getText();
     String firstname = txtfirstname.getText();
-    String lastname = txtlastname.getText();
+    String lastname =  txtlastname.getText();
     String username = txtusername.getText();
     String password = txtpassword.getText();
+
+    if ((firstname.isEmpty()) ||(lastname.isEmpty()) ||(username.isEmpty()) ||(password.isEmpty())){
+      JOptionPane.showMessageDialog(this,"Feild cannot be left empty");
+      return;
+    }
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
