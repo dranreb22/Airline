@@ -211,7 +211,7 @@ public class userCreation extends javax.swing.JInternalFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  public void jButton1ActionPerformed(
+  public boolean jButton1ActionPerformed(
           java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     String pattern = "[a-zA-z0-9]{8,}";
     Pattern compiledPattern = Pattern.compile(pattern);
@@ -226,11 +226,11 @@ public class userCreation extends javax.swing.JInternalFrame {
 
     if ((firstname.isEmpty()) ||(lastname.isEmpty()) ||(username.isEmpty())){
       JOptionPane.showMessageDialog(this,"Field cannot be left empty");
-      return;
+      return false;
     }
     if (!passwordMatch){
       JOptionPane.showMessageDialog(this, "Password can only contain 8 or more alphanumeric characters");
-      return;
+      return false;
     }
 
     try {
@@ -252,7 +252,7 @@ public class userCreation extends javax.swing.JInternalFrame {
 
       }else{
         showMessageDialog(null,"Please enter a valid username or password.");
-        return;
+        return false;
       }
 
 
@@ -262,10 +262,11 @@ public class userCreation extends javax.swing.JInternalFrame {
       JOptionPane.showMessageDialog(null, "User Created.........");
     } catch (ClassNotFoundException | SQLException ex) {
       Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+      return false;
     }
 
 
-    return;
+    return true;
   }//GEN-LAST:event_jButton1ActionPerformed
 
   private void jButton2ActionPerformed(

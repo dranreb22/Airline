@@ -142,10 +142,10 @@ public class Login extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   public void setTxtUser(String user){this.txtuser.setText(user);}
-  public void setTxtPassword(String password){this.txtuser.setText(password);}
+  public void setTxtPassword(String password){this.txtpass.setText(password);}
 
   // Event handler for the Login button
-  private void loginButtonClicked(
+  public boolean loginButtonClicked(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -155,6 +155,7 @@ public class Login extends javax.swing.JFrame {
 
     if (username.isEmpty() || password.isEmpty()) {
       JOptionPane.showMessageDialog(this, "UserName or Password Blank");
+      return false;
     } else {
       try {
           Class.forName("com.mysql.cj.jdbc.Driver");
@@ -177,11 +178,14 @@ public class Login extends javax.swing.JFrame {
           txtuser.setText("");
           txtpass.setText("");
           txtuser.requestFocus();
+          return false;
         }
       } catch (ClassNotFoundException | SQLException ex) {
         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        return false;
       }
     }
+    return true;
 
   }//GEN-LAST:event_jButton1ActionPerformed
 

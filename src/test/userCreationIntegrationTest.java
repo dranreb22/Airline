@@ -12,6 +12,8 @@ import org.junit.Assert;
 
 import java.sql.SQLException;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,7 +40,7 @@ public class userCreationIntegrationTest {
     @Test
     public void driverTestUserCreation(){
         userCreation createUser = new userCreation();
-        User userCreation = new User("Christtest","Thorntest","", "usernametest", "passwordtest");
+        User userCreation = new User("Christtest","Thorntest","", "2usernametest", "passwordtest");
 
         createUser.setTxtFirstName(userCreation.getFirstname());
         createUser.setTxtLastName(userCreation.getLastname());
@@ -51,16 +53,16 @@ public class userCreationIntegrationTest {
 
         Login loginTester = new Login();
 
-        loginTester.setTxtUser("usernametest");
-        loginTester.setTxtPassword("passwordtest");
+        loginTester.setTxtUser(userCreation.getUsername());
+        loginTester.setTxtPassword(userCreation.getPassword());
 
-        loginTester.loginButtonClicked(null);
+        assertTrue(loginTester.loginButtonClicked(null));
     }
 
     @Test
     public void driverTestUserCreationFail(){
         userCreation createUser = new userCreation();
-        User userCreation = new User("","","", "", "");
+        User userCreation = new User("Christtest","Thorntest","", "", "");
 
         createUser.setTxtFirstName(userCreation.getFirstname());
         createUser.setTxtLastName(userCreation.getLastname());
@@ -69,7 +71,14 @@ public class userCreationIntegrationTest {
         createUser.setPassword(userCreation.getPassword());
 
         //create a new user
-        createUser.jButton1ActionPerformed(null);
+        assertFalse(createUser.jButton1ActionPerformed(null));
+
+        Login loginTester = new Login();
+
+        loginTester.setTxtUser(userCreation.getUsername());
+        loginTester.setTxtPassword(userCreation.getPassword());
+
+        assertFalse(loginTester.loginButtonClicked(null));
     }
 
 
