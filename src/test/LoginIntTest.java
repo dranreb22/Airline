@@ -29,7 +29,7 @@ public class LoginIntTest {
       when(test.getUsername()).thenReturn("test");
       when(test.getPassword()).thenReturn("pass");
 
-    Assert.assertTrue(test.getUsername() != null);
-    Assert.assertTrue(test.getPassword() != null);
+    Assert.assertNotNull(test.getUsername());
+    Assert.assertNotNull(test.getPassword());
   }
 }
