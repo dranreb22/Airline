@@ -1,4 +1,4 @@
-package test;
+package integration_tests;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 
 import com.company.addCustomer;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 public class addCustomerIntTest {

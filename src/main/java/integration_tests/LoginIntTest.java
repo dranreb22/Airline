@@ -1,11 +1,9 @@
-package test;
+package integration_tests;
 
-import com.company.Login;
 import com.company.User;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
-import org.mockito.Mock;
 import org.junit.Assert;
 
 import static org.mockito.Mockito.mock;
@@ -26,7 +24,7 @@ public class LoginIntTest {
   @Test
   public void isEmptyLoginStub() throws Exception {
       User test = mock(User.class);
-      when(test.getUsername()).thenReturn("test");
+      when(test.getUsername()).thenReturn("Gui_tests");
       when(test.getPassword()).thenReturn("pass");
 
     Assert.assertNotNull(test.getUsername());

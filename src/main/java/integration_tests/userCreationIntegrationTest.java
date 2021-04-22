@@ -1,16 +1,10 @@
-package test;
+package integration_tests;
 
 import com.company.Login;
 import com.company.User;
 import com.company.userCreation;
 import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
-import org.junit.jupiter.api.BeforeEach;
-import org.mockito.Mock;
 import org.junit.Assert;
-
-import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

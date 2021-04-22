@@ -1,9 +1,7 @@
-package test;
+package Gui_tests;
 
 import com.company.Main;
-import com.company.addflight;
 import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.Containers;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.junit.testcase.AssertJSwingJUnitTestCase;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +29,7 @@ public class addFlightGuiTest extends AssertJSwingJUnitTestCase {
     public void checkAddFlight() {
         window.menuItem("flightMenu").click().requireVisible();
         window.menuItem("addFlight").click().requireVisible();
-        window.textBox("name").enterText("test");
+        window.textBox("name").enterText("Gui_tests");
         window.comboBox("source").selectItem(1);
         window.comboBox("depart").selectItem(1);
         window.panel("date").textBox().setText("Apr 1, 2021");

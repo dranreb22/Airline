@@ -1,9 +1,8 @@
-package test;
+package Gui_tests;
 
 import javax.swing.JDesktopPane;
 
 import com.company.Login;
-import com.company.userCreation;
 import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.Containers;
 import org.assertj.swing.fixture.FrameFixture;

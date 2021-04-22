@@ -1,11 +1,12 @@
-package test;
+package Unit__tests;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import org.junit.Assert;
-import org.junit.Test;
 
 // Test Case ID               : UnitTest-AddFlightTest-002
 // Requirement ID/Description : REQ-002 The application shall prohibit the user from creating a flight that departs on
