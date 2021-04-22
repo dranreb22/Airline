@@ -1,10 +1,9 @@
-package test;
+package Unit__tests;
 
 import com.company.addCustomer;
 import com.toedter.calendar.JCalendar;
 import org.junit.Test;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +29,7 @@ public class addCustomerTest {
     @Test
     public void jButton2ActionPerformed() {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String id = "test";
+        String id = "Gui_tests";
         String firstname = "first";
         String lastname = "last";
         String nic = "nic";

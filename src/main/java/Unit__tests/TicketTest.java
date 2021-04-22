@@ -1,11 +1,9 @@
-package test;
+package Unit__tests;
+
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
 /**
 Test Case Id: UnitTest-TicketTest-001
 Requirement ID/Description: REQ-001 The software shall multiply two numbers and return the correct result
