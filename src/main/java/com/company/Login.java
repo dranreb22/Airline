@@ -39,10 +39,14 @@ public class Login extends javax.swing.JFrame {
     jPanel1 = new javax.swing.JPanel();
     jLabel1 = new javax.swing.JLabel();
     jLabel2 = new javax.swing.JLabel();
-    jButton1 = new javax.swing.JButton();
+    jButton1 = new JButton();
     jButton2 = new javax.swing.JButton();
-    txtuser = new javax.swing.JTextField();
-    txtpass = new javax.swing.JPasswordField();
+    txtuser = new JTextField();
+    txtpass = new JPasswordField();
+
+    jButton1.setName("loginButton");
+    txtuser.setName("username");
+    txtpass.setName("password");
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,7 +154,8 @@ public class Login extends javax.swing.JFrame {
     // TODO add your handling code here:
 
     String username = txtuser.getText();
-    String password = String.valueOf(txtpass.getPassword());
+    //String password = String.valueOf(txtpass.getPassword());
+    String password = txtpass.getText();
     User user = new User(txtuser.getText(), String.valueOf(txtpass.getPassword()));
 
     if (username.isEmpty() || password.isEmpty()) {
