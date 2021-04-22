@@ -23,7 +23,7 @@ public class userCreationIntegrationTest {
     private User testUser;
 
     @Test
-    public void mockTestUserCreation() {
+    public void stubTestUserCreation() {
         User testUser = mock(User.class);
 
         //set the username and password fields to acceptable values.
