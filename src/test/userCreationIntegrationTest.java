@@ -25,7 +25,6 @@ public class userCreationIntegrationTest {
     @Test
     public void stubTestUserCreation() {
         User testUser = mock(User.class);
-f
         //set the username and password fields to acceptable values.
         when(testUser.getUsername()).thenReturn("Christ");
         when(testUser.getPassword()).thenReturn("123456");
