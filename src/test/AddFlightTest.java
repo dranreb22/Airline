@@ -48,6 +48,6 @@ public class AddFlightTest {
         //                  -> Return 1 if selected date is after the current date
         //                  -> 0 if selected date is the same as the current date
         //                  -> -1 if the selected date is prior to the current date
-        Assert.assertEquals(1, cal.getTime().compareTo(date));
+        Assert.assertEquals(-1, cal.getTime().compareTo(date));
     }
 }

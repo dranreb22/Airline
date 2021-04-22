@@ -1,5 +1,6 @@
 package test;
 
+import com.company.Login;
 import com.company.User;
 import com.company.userCreation;
 import org.junit.Test;
@@ -27,8 +28,6 @@ public class userCreationIntegrationTest {
         when(testUser.getUsername()).thenReturn("Christ");
         when(testUser.getPassword()).thenReturn("123456");
 
-        testUser.getUsername();
-
         //return true for a valid username and password length of 6-15 characters in length.
         Assert.assertTrue(String.valueOf(testUser.getUsername().length() >= 6), testUser.getUsername().length() <= 15);
         Assert.assertTrue(String.valueOf(testUser.getPassword().length() >= 6), testUser.getPassword().length() <= 15);
@@ -37,7 +36,7 @@ public class userCreationIntegrationTest {
 
 
     @Test
-    public void stubTestUserCreation(){
+    public void driverTestUserCreation(){
         userCreation createUser = new userCreation();
         User userCreation = new User("Christtest","Thorntest","", "usernametest", "passwordtest");
 
@@ -48,9 +47,26 @@ public class userCreationIntegrationTest {
         createUser.setPassword(userCreation.getPassword());
 
         //create a new user
-    createUser.jButton1ActionPerformed(null);
+        createUser.jButton1ActionPerformed(null);
 
-
+        Login loginTester = new Login();
     }
+
+    @Test
+    public void driverTestUserCreationFail(){
+        userCreation createUser = new userCreation();
+        User userCreation = new User("","","", "", "");
+
+        createUser.setTxtFirstName(userCreation.getFirstname());
+        createUser.setTxtLastName(userCreation.getLastname());
+        createUser.setTxtID(userCreation.getId());
+        createUser.setUserName(userCreation.getUsername());
+        createUser.setPassword(userCreation.getPassword());
+
+        //create a new user
+        createUser.jButton1ActionPerformed(null);
+    }
+
+
 
 }
