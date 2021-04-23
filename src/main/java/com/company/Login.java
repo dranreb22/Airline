@@ -194,8 +194,10 @@ public class Login extends javax.swing.JFrame {
 
   }//GEN-LAST:event_jButton1ActionPerformed
 
-  private void cancelButtonClicked(java.awt.event.ActionEvent evt) {
-    System.exit(0);
+  public boolean cancelButtonClicked(java.awt.event.ActionEvent evt) {
+
+    this.hide();
+    return true;
   }
 
   private void handleUserLogin(String username, String password) {
@@ -232,13 +234,13 @@ public class Login extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JButton jButton1;
-  private javax.swing.JButton jButton2;
-  private javax.swing.JLabel jLabel1;
-  private javax.swing.JLabel jLabel2;
-  private javax.swing.JPanel jPanel1;
-  private javax.swing.JPasswordField txtpass;
-  private javax.swing.JTextField txtuser;
+  public javax.swing.JButton jButton1;
+  public javax.swing.JButton jButton2;
+  public javax.swing.JLabel jLabel1;
+  public javax.swing.JLabel jLabel2;
+  public javax.swing.JPanel jPanel1;
+  public javax.swing.JPasswordField txtpass;
+  public javax.swing.JTextField txtuser;
 
   // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-package com.test.Integration_Tests;
+package Integration_Tests;
 
 import com.company.User;
 import org.junit.Test;
@@ -23,9 +23,9 @@ public class LoginIntTest {
   /** Method: main(String[] args) */
   @Test
   public void isEmptyLoginStub() throws Exception {
-      User test = mock(User.class);
-      when(test.getUsername()).thenReturn("Gui_tests");
-      when(test.getPassword()).thenReturn("pass");
+    User test = mock(User.class);
+    when(test.getUsername()).thenReturn("Gui_tests");
+    when(test.getPassword()).thenReturn("pass");
 
     Assert.assertNotNull(test.getUsername());
     Assert.assertNotNull(test.getPassword());

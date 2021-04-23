@@ -61,7 +61,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
   }
 
   public void setTxtLastName(String txt){
-    txtfirstname.setText(txt);
+    txtlastname.setText(txt);
   }
 
   public void setTxtNIC(String nic){
@@ -71,6 +71,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
   public void setTxtID(String id){
     txtid.setText(id);
   }
+
+  public void setTxtContact(int contact){this.txtcontact.setText(String.valueOf(contact));}
 
   public void setTxtAddress(String address){
     txtaddress.setText(address);
@@ -445,7 +447,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
     // TODO add your handling code here:
   }//GEN-LAST:event_txtpassportActionPerformed
 
-  private void jButton1ActionPerformed(
+  public boolean jButton1ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // TODO add your handling code here:
 
@@ -474,8 +476,9 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
     } catch (IOException ex) {
       Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+      return false;
     }
-
+    return true;
 
   }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -491,14 +494,21 @@ public class addCustomer extends javax.swing.JInternalFrame {
     String passport = txtpassport.getText();
     String address = txtaddress.getText();
 
+    System.out.println(firstname);
+    System.out.println(lastname);
+    System.out.println(nic);
+    System.out.println(passport);
+    System.out.println(address);
 
-    if(isNullOrEmpty(id) || isNullOrEmpty(firstname) || isNullOrEmpty(lastname) ||
-        isNullOrEmpty(nic) || isNullOrEmpty(passport) || isNullOrEmpty(address) ||
-            (!(r1.isSelected()) && !(r2.isSelected())) || userimage == null) {
 
-      System.out.println(id);
+    if(isNullOrEmpty(firstname) || isNullOrEmpty(lastname)
+        || isNullOrEmpty(nic) || isNullOrEmpty(passport) || isNullOrEmpty(address) ) {
       JOptionPane.showMessageDialog(null, "There seems to be an empty field...");
-
+      System.out.println(firstname);
+      System.out.println(lastname);
+      System.out.println(nic);
+      System.out.println(passport);
+      System.out.println(address);
       return false;
     }
 
@@ -513,7 +523,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
       Gender = "FeMale";
     }
 
-    String contact = txtcontact.getText();
+    int contact = Integer.parseInt(txtcontact.getText());
+    System.out.println(contact);
 
     try {
       Class.forName("com.mysql.cj.jdbc.Driver");
@@ -530,7 +541,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
       pst.setString(6, address);
       pst.setString(7, date);
       pst.setString(8, Gender);
-      pst.setString(9, contact);
+      pst.setInt(9, contact);
       pst.setBytes(10, userimage);
       pst.executeUpdate();
 

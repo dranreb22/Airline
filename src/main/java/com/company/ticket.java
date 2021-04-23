@@ -551,6 +551,8 @@ public class ticket extends javax.swing.JInternalFrame {
 
   }
 
+  public String getCustId(){return this.txtcustid.getText();}
+
 
   private void jButton4ActionPerformed(
       java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

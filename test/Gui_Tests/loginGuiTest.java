@@ -1,4 +1,4 @@
-package com.test.Gui_Tests;
+package Gui_Tests;
 
 import javax.swing.JDesktopPane;
 
@@ -39,6 +39,23 @@ public class loginGuiTest extends AssertJSwingJUnitTestCase {
         window.button("loginButton").click();
         window.cleanUp();
 
+    }
+
+
+    @Test
+    public void checkInvalidLogin(){
+        window.textBox("username").setText("");
+        window.textBox("password").setText("");
+        window.button("loginButton").click();
+        window.cleanUp();
+    }
+
+    @Test
+    public void validCancelButtonClickedTest(){
+        window.textBox("username").enterText("");
+        window.textBox("password").enterText("");
+        window.button("loginButton").click();
+        window.cleanUp();
     }
 }
 

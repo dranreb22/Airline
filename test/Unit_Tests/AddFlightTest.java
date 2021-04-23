@@ -1,4 +1,4 @@
-package com.test.Unit_Tests;
+package Unit_Tests;
 
 import org.junit.Assert;
 import org.junit.Test;
